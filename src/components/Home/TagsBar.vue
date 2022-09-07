@@ -1,8 +1,8 @@
 <template>
     <div class="w-full bg-white px-4">
         <h2 class="font-bold text-3xl p-3">Sections</h2>
-        <div class="flex flex-wrap">
-            <button v-for="section in sections" class="border-2 rounded p-1 px-2 m-2 bg-gray-100 text-xs">{{section.display_name}}</button>
+        <div class="flex overflow-x-scroll py-2">
+            <button v-for="section in sections" class="border-2 rounded px-8 py-0 mx-1 bg-gray-100 text-xs">{{section.display_name}}</button>
         </div>
     </div>
 </template>
