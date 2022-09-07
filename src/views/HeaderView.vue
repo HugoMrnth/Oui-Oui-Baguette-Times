@@ -9,7 +9,7 @@
                 <input type="search" id="default-search" class="block p-2 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search articles" required>
             </div>
         </form>
-        <h1 class="font-['Abril_Fatface'] text-4xl flex-1 	">The Oui Oui Baguette Times</h1>
+        <h1 class="font-['Abril_Fatface'] text-4xl flex-1">The Oui Oui Baguette Times<i class="fa fa-umbrella" aria-hidden="true"></i></h1>
         <nav class="flex-1 text-right">
             <p><i class="fa fa-bars text-2xl" aria-hidden="true"></i></p>
         </nav>
