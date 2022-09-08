@@ -1,6 +1,6 @@
 <template>
     <div class="w-2/12 bg-white px-4">
-        <h2 class="font-bold text-3xl p-3 font-['Abril_Fatface']">Sections</h2>
+        <h2 class="font-bold text-2xl mt-4 font-['Abril_Fatface']">Sections</h2>
         <div class="flex flex-col items-start py-2">
             <Tag v-for="section in sections" :display_name="section.display_name" :section="section.section"/>
         </div>

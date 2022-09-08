@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import ArticleView from '../views/ArticleView.vue'
+import SearchView from '../views/SearchView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -9,9 +9,9 @@ const routes: Array<RouteRecordRaw> = [
     component: HomeView
   },
   {
-    path: '/article/:id',
-    name: 'article',
-    component: ArticleView
+    path: '/search/:query',
+    name: 'search',
+    component: SearchView
   },
   
 ]

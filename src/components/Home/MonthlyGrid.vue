@@ -2,13 +2,13 @@
     <div class="w-8/12">
         <section class="w-11/12 mt-10 mx-auto bg-white p-4 pt-10 grid grid-cols-3">
             <div class="flex flex-wrap">
-                <ArticleCard v-for="article in col1" :title="article.title" :kicker="article.kicker" :image="article.multimedia != null ? article.multimedia[2].url : null" :abstract="article.abstract"  />
+                <ArticleCard v-for="article in col1" :title="article.title" :kicker="article.kicker" :image="article.multimedia != null ? article.multimedia[2].url : null" :abstract="article.abstract" :url="article.url" />
             </div>
             <div class="flex flex-col">
-                <ArticleCard v-for="article in col2" :title="article.title" :kicker="article.kicker" :image="article.multimedia != null ? article.multimedia[2].url : null" :abstract="article.abstract"  />
+                <ArticleCard v-for="article in col2" :title="article.title" :kicker="article.kicker" :image="article.multimedia != null ? article.multimedia[2].url : null" :abstract="article.abstract"  :url="article.url"/>
             </div>
             <div class="flex flex-col">
-                <ArticleCard v-for="article in col3" :title="article.title" :kicker="article.kicker" :image="article.multimedia != null ? article.multimedia[2].url : null" :abstract="article.abstract"  />
+                <ArticleCard v-for="article in col3" :title="article.title" :kicker="article.kicker" :image="article.multimedia != null ? article.multimedia[2].url : null" :abstract="article.abstract" :url="article.url" />
             </div>
         </section>
     </div>
@@ -36,7 +36,7 @@ const selSection = inject('selSection')
         byline: string,
         published_date: string,
         multimedia: Array<{url:string}>,
-        uri : string,
+        url: string,
         section: string,
         kicker: string
 

@@ -3,7 +3,7 @@
         <h3 class="text-2xl font-bold text-center mt-4 mb-6 font-['Abril_Fatface']">Populars Articles</h3>
         <section class="flex flex-col px-4">
             <article v-for="article in articles" class="my-4 flex flex-col">
-                <router-link :to="{ name: 'article', params: { id: article.uri }}">
+                <a :href="article.url" target="_blank">
                     <div class="flex text-xs">
                         <p class="mr-3 text-yellow-500">{{article.source}}</p>
                         <p>{{article.published_date}}</p>
@@ -11,7 +11,7 @@
                     <h4 class="font-bold text-sm my-1">{{article.title}}</h4>
                     <p class="italic text-xs my-1 text-right">{{article.byline}}</p>
                     <div class="mt-2 border-b-2 border-black w-3/12"></div>
-                </router-link>
+                </a>
                 </article>
         </section>
     </div>
@@ -33,7 +33,7 @@
         source: string,
         published_date: string,
         byline: string,
-        uri :string
+        url :string
 
     }
     const articles = ref<[Article]>()
