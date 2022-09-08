@@ -1,9 +1,9 @@
 <template>
-    <div class="flex flex-col border-r-2 w-2/12 bg-white  border-zinc-300">
-        <h3 class="text-2xl font-bold text-center mt-4 mb-6">Populars Articles</h3>
+    <div class="flex flex-col border-r-2 w-2/12 bg-white border-zinc-300">
+        <h3 class="text-2xl font-bold text-center mt-4 mb-6 font-['Abril_Fatface']">Populars Articles</h3>
         <section class="flex flex-col px-4">
             <article v-for="article in articles" class="my-4 flex flex-col">
-                <router-link to="/article">
+                <router-link :to="{ name: 'article', params: { id: article.uri }}">
                     <div class="flex text-xs">
                         <p class="mr-3 text-yellow-500">{{article.source}}</p>
                         <p>{{article.published_date}}</p>
@@ -32,7 +32,8 @@
         title: string,
         source: string,
         published_date: string,
-        byline: string
+        byline: string,
+        uri :string
 
     }
     const articles = ref<[Article]>()

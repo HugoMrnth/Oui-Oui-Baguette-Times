@@ -1,14 +1,14 @@
 <template>
-    <div class="w-full">
+    <div class="w-8/12">
         <section class="w-11/12 mt-10 mx-auto bg-white p-4 pt-10 grid grid-cols-3">
             <div class="flex flex-wrap">
-                <ArticleCard v-for="article in col1" :title="article.title" :kicker="article.kicker" :image="article?.multimedia[2].url" :abstract="article.abstract"  />
+                <ArticleCard v-for="article in col1" :title="article.title" :kicker="article.kicker" :image="article.multimedia != null ? article.multimedia[2].url : null" :abstract="article.abstract"  />
             </div>
             <div class="flex flex-col">
-                <ArticleCard v-for="article in col2" :title="article.title" :kicker="article.kicker" :image="article?.multimedia[2].url" :abstract="article.abstract"  />
+                <ArticleCard v-for="article in col2" :title="article.title" :kicker="article.kicker" :image="article.multimedia != null ? article.multimedia[2].url : null" :abstract="article.abstract"  />
             </div>
             <div class="flex flex-col">
-                <ArticleCard v-for="article in col3" :title="article.title" :kicker="article.kicker" :image="article?.multimedia[2].url" :abstract="article.abstract"  />
+                <ArticleCard v-for="article in col3" :title="article.title" :kicker="article.kicker" :image="article.multimedia != null ? article.multimedia[2].url : null" :abstract="article.abstract"  />
             </div>
         </section>
     </div>
@@ -26,9 +26,10 @@
 </script>
 
 <script setup lang="ts">
-    import { onMounted, ref } from 'vue';
-import ArticleCard from '../ArticleCard.vue';
-    // type Article = object
+    import { onMounted, ref, inject, watch } from 'vue';
+import ArticleCard from '../ArticleCard.vue'
+const selSection = inject('selSection')
+
     interface Article {
         title: string,
         abstract: string,
@@ -44,15 +45,23 @@ import ArticleCard from '../ArticleCard.vue';
     const col2 = ref<[Article]>()
     const col3 = ref<[Article]>()
 
-
-    onMounted(() => {
-        fetch(`https://api.nytimes.com/svc/news/v3/content/all/all.json?api-key=eQhXe2kNTCVKkFf47qUCjFhmG5nSVB5O`).then(res => res.json()).then(data => {
-            // console.log(data)
+    function fetchArticle(): void {
+        fetch(`https://api.nytimes.com/svc/news/v3/content/all/${selSection.value}.json?api-key=eQhXe2kNTCVKkFf47qUCjFhmG5nSVB5O`).then(res => res.json()).then(data => {
+            console.log(data)
             let temp = data.results
             col1.value = temp.slice(0,7)
             col2.value = temp.slice(7,14)
             col3.value = temp.slice(14)
         })
+    }
+
+
+    onMounted(() => {
+        fetchArticle()
+    })
+
+    watch(selSection, () => {
+        fetchArticle()
     })
 
 </script>
